@@ -29,10 +29,12 @@ public class Tokenizer {
 
     private Token parseToken(char subject) {
         return switch (subject) {
-            case '+' -> new Token(TokenType.Addition, "+");
-            case '-' -> new Token(TokenType.Subtraction, "-");
+            case '(' -> new Token(TokenType.OpenBracket, "(");
+            case ')' -> new Token(TokenType.CloseBracket, ")");
             case '*' -> new Token(TokenType.Multiplication, "*");
             case '/' -> new Token(TokenType.Division, "/");
+            case '+' -> new Token(TokenType.Addition, "+");
+            case '-' -> new Token(TokenType.Subtraction, "-");
             default -> parseTokenNumberLiteral(subject);
         };
     }

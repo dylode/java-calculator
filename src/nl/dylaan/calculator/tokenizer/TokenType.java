@@ -1,9 +1,11 @@
 package nl.dylaan.calculator.tokenizer;
 
 public enum TokenType {
-    NumberLiteral,
+    OpenBracket,
+    CloseBracket,
+    Multiplication,
+    Division,
     Addition,
     Subtraction,
-    Multiplication,
-    Division
+    NumberLiteral,
 }
