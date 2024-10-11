@@ -27,7 +27,7 @@ public class Tokenizer {
         return tokens;
     }
 
-    private Token parseToken(char subject) throws Exception {
+    private Token parseToken(char subject) {
         return switch (subject) {
             case '+' -> new Token(TokenType.Addition, "+");
             case '-' -> new Token(TokenType.Subtraction, "-");
@@ -37,7 +37,7 @@ public class Tokenizer {
         };
     }
 
-    private Token parseTokenNumberLiteral(char subject) throws Exception {
+    private Token parseTokenNumberLiteral(char subject) {
         if (!isDigit(subject)) {
             return null;
         }
