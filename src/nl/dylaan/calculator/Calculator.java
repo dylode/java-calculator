@@ -1,5 +1,9 @@
 package nl.dylaan.calculator;
 
+import nl.dylaan.calculator.tokenizer.Token;
+import nl.dylaan.calculator.tokenizer.Tokenizer;
+
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,6 +19,22 @@ public class Calculator {
         Scanner scanner = new Scanner(System.in);
         String formula = scanner.nextLine();
         scanner.close();
+        return Calculator.calculate(formula);
+    }
+
+    public static double calculate(String formula) {
+        Tokenizer tokenizer = new Tokenizer(formula);
+        List<Token> tokens;
+        try {
+            tokens = tokenizer.getTokens();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        for (Token token : tokens) {
+            System.out.format("%s => %s\n", token.getTokenType(), token.getValue());
+        }
+
         return 0.0d;
     }
 }
